@@ -1,4 +1,3 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 #include <queue>
@@ -122,10 +121,52 @@ void reverseLevelOrderTraversal(node* root){
             cout << temp -> data << " ";
         }
     }
+    
   
+}
+
+void inOrderTraversal(node* root){
+    
+    //base case
+    if(root == NULL){
+        return;
+    }
+    
+    inOrderTraversal(root -> left);
+    cout << root -> data <<  " ";
+    inOrderTraversal(root -> right);
+    
+   
     
 }
 
+void preOrderTraversal(node* root){
+    
+    if(root == NULL){
+        return;
+    }
+    
+   
+    cout << root -> data << " ";
+    preOrderTraversal(root -> left);
+    preOrderTraversal(root -> right);
+    
+   
+}
+
+
+void postOrderTraversal(node* root){
+    
+    if(root == NULL){
+        return;
+    }
+    
+    postOrderTraversal(root -> left);
+    postOrderTraversal(root -> right);
+    cout << root -> data << " ";
+    
+  
+}
 
 
 int main() {
@@ -134,10 +175,25 @@ int main() {
     
     root =  buildTree(root);
     
+    cout << "Level Order Traversal" << endl;
+    
     levelOrderTraversal(root);
+    
+    cout << "Reverse Level Order Traversal" << endl;
     
     reverseLevelOrderTraversal(root);
     
+     cout << endl << "In order traversal: ";
+    
+    inOrderTraversal(root);
+    
+    cout << endl << "Pre Order Traversal: ";
+    
+    preOrderTraversal(root);
+    
+    cout << endl << "Post Order Traversal: ";
+    
+    postOrderTraversal(root);
     // 2 8 6 -1 -1 3 -1 -1 4 5 -1 -1 -1
 
     return 0;
